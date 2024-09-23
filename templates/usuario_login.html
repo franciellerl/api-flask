@@ -3,30 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>@franciellerl</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}"/> 
 </head>
 <body>
-    <h1>Login</h1>
+    <div class="container">
+        <div class="wrapper">
+            <a href="{{ url_for('menu') }}">
+                <button id="buttonX">X</button>
+            </a>
 
-    <form method="POST">
-        <label for="email">E-mail:</label><br>
-        <input type="text" id="email" name="email" required><br><br>
+            <h1>Login</h1>
 
-        <label for="senha">Senha:</label><br>
-        <input type="text" id="senha" name="senha" required><br><br>
+            <form method="POST">
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" name="email" required>
 
-        <button type="submit">Login</button>
-    </form>
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
 
-    <!-- Exibe mensagens flash de erro -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <ul>
-                {% for category, message in messages %}
-                    <li style="color: red;">{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

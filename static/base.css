@@ -12,108 +12,109 @@ body {
     color: #333;
     line-height: 1.6;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh; /* Altura mínima da tela */
+}
+
+/* Container */
+.container {
+    display: grid;
+    grid-template-columns: 1fr; /* Uma coluna */
+    max-width: 1200px; /* Largura máxima */
+    width: 100%; /* Largura total */
+    height: auto; /* Altura automática */
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Wrapper */
 .wrapper {
-    background: white;
+    position: relative; /* Para posicionar o botão dentro dele */
+    display: flex;
+    flex-direction: column; /* Alinha os itens em coluna */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
     padding: 20px;
+    background: white;
     border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    max-width: 900px;
-    width: 100%;
-    height: 400px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Largura total */
+}
+
+/* Close Button */
+#buttonX {
+    background-color: #88b98f;
+    border: none;
+    font-size: 14px; /* Tamanho do texto */
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    position: absolute; /* Mantém o botão no canto */
+    top: 20px; /* Distância do topo */
+    left: 20px; /* Distância da esquerda */
+    padding: 5px 10px; /* Padding ajustado para ser menor */
+    border-radius: 5px;
+    width: 5%; 
+}
+
+/* Close Button Hover Effect */
+#buttonX:hover {
+    background-color: #6ea377;
 }
 
 /* Typography */
-h1, h3 {
+h1 {
     text-align: center;
     margin-bottom: 15px;
     color: #2f5547;
     font-weight: 900;
 }
 
+/* Form Styles */
+form {
+    display: flex; /* Habilita o uso de flexbox no formulário */
+    flex-direction: column; /* Alinha os itens em coluna */
+    align-items: center; /* Centraliza horizontalmente */
+    gap: 15px; /* Espaço entre os elementos */
+    width: 100%; /* Largura total do formulário */
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"] {
+    padding: 10px; /* Padding interno */
+    border: 1px solid #ddd; /* Bordas */
+    border-radius: 5px; /* Bordas arredondadas */
+    width: 100%; /* Largura total dos inputs */
+}
+
 /* Buttons */
-button, .button {
+button {
     background-color: #88b98f;
     border: none;
     color: white;
-    padding: 10px 20px;
+    padding: 10px;
     text-align: center;
     border-radius: 8px;
     font-size: 14px;
     cursor: pointer;
     transition: 0.3s;
+    width: 80%; /* Largura ajustada dos botões */
+    margin: 10px 0; /* Espaço entre os botões */
 }
 
-button:hover, .button:hover {
+button:hover {
     background-color: #6ea377;
 }
 
-#botao {
-    width: 200px;
-}
-
-#botaozinho {
-    width: 120px;
-}
-
-/* Table */
-table {
-    width: 100%;
-    margin: 20px 0;
-    border-collapse: collapse;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-td, th {
-    border: 1px solid #ddd;
-    padding: 10px 15px;
-    text-align: center;
-}
-
-th {
-    background-color: #88b98f;
-    color: white;
-    font-weight: bold;
-}
-
-tr:nth-child(even) {
-    background-color: #e7f2ec;
-}
-
-tr:hover {
-    background-color: #d9eae0;
-}
-
-/* Close Button */
-#close-btn {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: white;
-    padding: 8px 12px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#close-btn:hover {
-    background-color: #6ea377;
-}
-
-/* Container */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px;
+/* Links */
+a {
+    width: 80%; /* Faz com que o link ocupe a largura total */
+    display: flex; /* Habilita o uso de flexbox */
+    justify-content: center; /* Centraliza horizontalmente o link */
 }

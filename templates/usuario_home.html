@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>@franciellerl</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}"/> 
 </head>
 <body>
-    <h1>Olá, {{ usuarios.nome }}!</h1>
-    <p>Estamos felizes em ter você aqui!</p>
+    <div class="container">
+        <div class="wrapper">
+            <a href="{{ url_for('menu') }}"><button id="buttonX">X</button></a>
+
+            <h1>Olá, {{ usuarios.nome }}!</h1>
+            <p>Estamos felizes em ter você aqui!</p>
+            <img src="{{ url_for('static', filename='images/gatito.jpg') }}" width="300" alt="Imagem de um gato">
+        </div>
+    </div>
 </body>
 </html>

@@ -3,37 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Novo Usuário</title>
+    <title>@franciellerl</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}"/> 
 </head>
 <body>
-    <h1>Criar Novo Usuário</h1>
+    <div class="container">
+        <div class="wrapper">
+            <a href="{{ url_for('menu') }}">
+                <button id="buttonX">X</button>
+            </a>
 
-    <!-- Formulário para criar novo usuário -->
-    <form method="POST">
-        <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required><br><br>
+            <h1>Cadastro</h1>
 
-        <label for="data_nascimento">Data de Nascimento:</label><br>
-        <input type="date" id="data_nascimento" name="data_nascimento" required><br><br>
+            <!-- Formulário para criar novo usuário -->
+            <form method="POST">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
-        <label for="email">E-mail:</label><br>
-        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required><br><br>
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" required>
 
-        <label for="senha">Senha:</label><br>
-        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required><br><br>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
 
-        <button type="submit">Cadastrar</button>
-    </form>
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
 
-    <!-- Exibe mensagens flash de erro ou sucesso -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <ul>
-                {% for category, message in messages %}
-                    <li style="color: {% if category == 'error' %}red{% else %}green{% endif %};">{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

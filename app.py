@@ -29,11 +29,12 @@ def usuario_new():
             if usuario_teste:
                 # caso o email já exista, exibe mensagem de erro
                 flash('Já existe um cadastro com este e-mail', 'error')
-            usuarios = usuario(nome, data_nascimento, email, senha)
-            db.session.add(usuarios)
-            db.session.commit()
-            flash('Adicionado corretamente')
-            return redirect(url_for('usuario_home', id=usuarios.id))
+            else:
+                usuarios = usuario(nome, data_nascimento, email, senha)
+                db.session.add(usuarios)
+                db.session.commit()
+                flash('Adicionado corretamente')
+                return redirect(url_for('usuario_home', id=usuarios.id))
     return render_template('usuario_new.html')
 
 @app.route('/login', methods=['GET', 'POST'])
