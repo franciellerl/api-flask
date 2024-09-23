@@ -14,7 +14,7 @@ def menu():
     return render_template('menu.html')
 
 # usuario
-@app.route('/criar', methods=['GET', 'POST'])
+@app.route('/new', methods=['GET', 'POST'])
 def usuario_new():
     if request.method == 'POST':
         nome = request.form['nome'] 
@@ -33,9 +33,31 @@ def usuario_new():
             db.session.add(usuarios)
             db.session.commit()
             flash('Adicionado corretamente')
-            return redirect(url_for('usuario_home.html'))
+            return redirect(url_for('usuario_home', id=usuarios.id))
     return render_template('usuario_new.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+def usuario_login():
+    if request.method == 'POST':
+        email = request.form['email'] 
+        senha = request.form['senha']
+
+        usuarios = usuario.query.filter_by(email=email, senha=senha).first()
+        if usuarios:
+            return redirect(url_for('usuario_home', id=usuarios.id))
+        else:
+            flash('E-mail ou senha incorretos', 'error')
+    return render_template('usuario_login.html')
+
+@app.route('/home/<id>')
+def usuario_home(id):
+    usuarios = usuario.query.filter_by(id=id).first()
+
+    if not usuarios:
+        flash('Usuário não encontrado!', 'error')
+        return redirect(url_for('usuario_login'))
+
+    return render_template('usuario_home.html', usuarios=usuarios)
 
 if __name__ == '__main__':
     with app.app_context():
